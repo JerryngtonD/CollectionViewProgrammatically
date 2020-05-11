@@ -34,7 +34,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width / 3 - 16, height: 100)
+        return CGSize(width: (view.frame.width / 3) - 16, height: 100)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -49,18 +49,18 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
 class TeamCell : UICollectionViewCell {
     let teamImageView: UIImageView = {
        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
         iv.contentMode = .scaleAspectFit
         iv.backgroundColor = .green
-        iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
     
     let teamNameLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Name"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         return label
     }()
@@ -79,14 +79,18 @@ class TeamCell : UICollectionViewCell {
 
       
         
-        teamImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        teamImageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        teamImageView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        teamImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
+        teamImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
+        teamImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: 10).isActive = true
+        teamImageView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        teamImageView.widthAnchor.constraint(equalToConstant: 0).isActive = true
         
-        teamNameLabel.topAnchor.constraint(equalTo: teamImageView.bottomAnchor).isActive = true
-        teamNameLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        teamNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        teamNameLabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        
+        teamNameLabel.topAnchor.constraint(equalTo: teamImageView.bottomAnchor, constant: 0).isActive = true
+        teamNameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive = true
+        teamNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
+        teamNameLabel.rightAnchor.constraint(equalTo: rightAnchor,  constant: 0).isActive = true
+
     }
     
     required init?(coder: NSCoder) {
