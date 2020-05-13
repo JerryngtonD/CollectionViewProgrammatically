@@ -34,16 +34,12 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (view.frame.width / 3) - 16, height: 100)
+        return CGSize(width: (view.frame.width / 3) - 16, height: 120)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     }
-    
-    
-    
-
 }
 
 class TeamCell : UICollectionViewCell {
@@ -76,13 +72,10 @@ class TeamCell : UICollectionViewCell {
         addSubview(teamImageView)
         addSubview(teamNameLabel)
         
-
-      
-        
         teamImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
         teamImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
-        teamImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: 10).isActive = true
-        teamImageView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        teamImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
+        teamImageView.heightAnchor.constraint(equalToConstant: 90.0).isActive = true
         teamImageView.widthAnchor.constraint(equalToConstant: 0).isActive = true
         
         
